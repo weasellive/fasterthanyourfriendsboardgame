@@ -1,64 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Faster Board Game</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
-    <style>
-        body {
-            background-color: #121212;
-            font-family: 'Garamond', Garamond ;
-            color: #fff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 24px;
-        }
-        main {
-            padding: 20px;
-        }
-        img {
-            max-width: 100%;
-        }
-        a {
-            color: #FF5733;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-        }
-        a:hover {
-            color: #FFC300;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 24px;
-            }
-            p {
-                font-size: 12px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Faster Than the Bear: A Board Game of Survival</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      font-family: 'Garamond', Garamond;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: #FF5733;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+    }
+
+    a:hover {
+      color: #FFC300;
+    }
+
+    #timer {
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      #timer {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <p> You dont have to be faster than a bear, just...</p>
-    <main>
-        <img src="images/only FTB.png" alt="1234">
-        <h1>Faster Than Your Friends!</h1>
-    </main>
-    
-    
-    <h1>Click the Link Below:</h1>
-    <a href="https://kickstarter.com" target="_blank">Visit Kickstarter.com to Support Us</a>
-    <a href="images.html">Go to our Artist's images</a>
+  <header>
+    <img src="images/running_bear.png" alt="A bear chasing someone">
+    <h1>Faster Than the Bear</h1>
+    <h2>A Board Game of Survival</h2>
+  </header>
+  <main>
+    <p>Forget escaping. Forget safety. In this game, you're running for your life, hoping to be the last one standing.</p>
+    <p>Test your reflexes and strategic thinking as you navigate a treacherous path, avoiding obstacles and outrunning the relentless bear.</p>
+    <p>Will you be the last one left? Play Faster Than the Bear and find out!</p>
+    <p id="timer"></p>
+  </main>
+  <script>
+    const deadline = new Date('January 29, 2024 23:59:59');
+
+    function updateTimer() {
+      const now = new Date();
+      const timeDiff = deadline - now;
+
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+      document.getElementById('timer').innerHTML = `Time remaining to end kickstarter: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+  <a href="https://kickstarter.com" target="_blank">Visit Kickstarter.com to Support Us</a>
+  <a href="images.html">Go to our Artist's images</a>
 </body>
 </html>
