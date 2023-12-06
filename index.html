@@ -48,6 +48,12 @@
     #timer {
       font-size: 36px;
       margin-top: 20px;
+      display: inline-block;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #222;
+      color: #FFC300;
+      border: 2px solid #FF5733;
     }
 
     @media (max-width: 768px) {
@@ -61,6 +67,7 @@
 
       #timer {
         font-size: 24px;
+        padding: 5px;
       }
     }
   </style>
@@ -89,7 +96,7 @@
       const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-      document.getElementById('timer').innerHTML = `Time remaining to end kickstarter: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+      document.getElementById('timer').innerHTML = `Time remaining to close kickstarter: ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     updateTimer();
@@ -97,5 +104,5 @@
   </script>
   <a href="https://kickstarter.com" target="_blank">Visit Kickstarter.com to Support Us</a>
   <a href="images.html">Go to our Artist's images</a>
-</body>
-</html>
+</body
+
